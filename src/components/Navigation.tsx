@@ -26,8 +26,8 @@ const Navigation = () => {
             <div className="p-2 bg-gradient-primary rounded-lg shadow-glow group-hover:shadow-elegant transition-all duration-300">
               <Plane className="h-6 w-6 text-white" />
             </div>
-            <span className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-              Voyager Nexus
+            <span className="text-xl font-bold text-foreground font-sans">
+              Magic World
             </span>
           </Link>
 
