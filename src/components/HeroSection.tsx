@@ -5,24 +5,28 @@ import santoriniImage from '@/assets/santorini.jpg';
 import tokyoImage from '@/assets/tokyo.jpg';
 import swissAlpsImage from '@/assets/swiss-alps.jpg';
 import dubaiImage from '@/assets/dubai.jpg';
-
 const HeroSection = () => {
-  const destinations = [
-    { name: 'Santorini', image: santoriniImage, rating: '4.9' },
-    { name: 'Tokyo', image: tokyoImage, rating: '4.8' },
-    { name: 'Swiss Alps', image: swissAlpsImage, rating: '4.7' },
-    { name: 'Dubai', image: dubaiImage, rating: '4.6' },
-  ];
-
-  return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+  const destinations = [{
+    name: 'Santorini',
+    image: santoriniImage,
+    rating: '4.9'
+  }, {
+    name: 'Tokyo',
+    image: tokyoImage,
+    rating: '4.8'
+  }, {
+    name: 'Swiss Alps',
+    image: swissAlpsImage,
+    rating: '4.7'
+  }, {
+    name: 'Dubai',
+    image: dubaiImage,
+    rating: '4.6'
+  }];
+  return <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src={heroImage}
-          alt="Beautiful travel destination"
-          className="w-full h-full object-cover"
-        />
+        <img src={heroImage} alt="Beautiful travel destination" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30" />
       </div>
 
@@ -39,26 +43,15 @@ const HeroSection = () => {
               </span>
             </h1>
             
-            <p className="text-xl text-gray-200 max-w-lg leading-relaxed">
-              Discover extraordinary destinations and create unforgettable memories. 
-              Let us guide you to the world's most breathtaking places.
-            </p>
+            
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Button 
-                variant="hero" 
-                size="lg" 
-                className="group bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20"
-              >
+              <Button variant="hero" size="lg" className="group bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20">
                 Explore Trips
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button 
-                variant="glass" 
-                size="lg"
-                className="group bg-black/20 backdrop-blur-md border border-white/20 hover:bg-black/30"
-              >
+              <Button variant="glass" size="lg" className="group bg-black/20 backdrop-blur-md border border-white/20 hover:bg-black/30">
                 <Play className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
                 Watch Video
               </Button>
@@ -91,19 +84,9 @@ const HeroSection = () => {
           {/* Right Side - Destination Cards */}
           <div className="relative">
             <div className="grid grid-cols-2 gap-6">
-              {destinations.map((destination, index) => (
-                <div 
-                  key={destination.name}
-                  className={`relative group cursor-pointer transform hover:scale-105 transition-all duration-300 ${
-                    index % 2 === 1 ? 'mt-8' : ''
-                  }`}
-                >
+              {destinations.map((destination, index) => <div key={destination.name} className={`relative group cursor-pointer transform hover:scale-105 transition-all duration-300 ${index % 2 === 1 ? 'mt-8' : ''}`}>
                   <div className="relative overflow-hidden rounded-2xl shadow-elegant hover:shadow-glow">
-                    <img 
-                      src={destination.image}
-                      alt={destination.name}
-                      className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
+                    <img src={destination.image} alt={destination.name} className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                     
                     {/* Content Overlay */}
@@ -119,8 +102,7 @@ const HeroSection = () => {
                       </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                </div>)}
             </div>
           </div>
           
@@ -133,8 +115,6 @@ const HeroSection = () => {
           <div className="w-1 h-3 bg-white/70 rounded-full mt-2 animate-pulse" />
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
