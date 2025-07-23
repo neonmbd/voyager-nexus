@@ -6,96 +6,78 @@ import santoriniImage from '@/assets/santorini.jpg';
 import tokyoImage from '@/assets/tokyo.jpg';
 import swissAlpsImage from '@/assets/swiss-alps.jpg';
 import dubaiImage from '@/assets/dubai.jpg';
-
 const Home = () => {
-  const featuredDestinations = [
-    {
-      id: '1',
-      name: 'Santorini',
-      country: 'Greece',
-      image: santoriniImage,
-      price: 1299,
-      rating: 4.9,
-      duration: '7 days',
-      groupSize: '2-8 people',
-      description: 'Experience the breathtaking sunsets and iconic blue-domed churches of this Greek island paradise.',
-      featured: true
-    },
-    {
-      id: '2',
-      name: 'Tokyo',
-      country: 'Japan',
-      image: tokyoImage,
-      price: 1899,
-      rating: 4.8,
-      duration: '10 days',
-      groupSize: '2-12 people',
-      description: 'Immerse yourself in the perfect blend of ancient traditions and cutting-edge modernity.',
-      featured: true
-    },
-    {
-      id: '3',
-      name: 'Swiss Alps',
-      country: 'Switzerland',
-      image: swissAlpsImage,
-      price: 2199,
-      rating: 4.9,
-      duration: '8 days',
-      groupSize: '2-6 people',
-      description: 'Adventure through pristine mountain landscapes and charming alpine villages.',
-      featured: true
-    }
-  ];
-
-  const testimonials = [
-    {
-      name: 'Sarah Johnson',
-      location: 'New York, USA',
-      rating: 5,
-      text: 'Absolutely incredible experience! The team at Voyager Nexus made our dream vacation a reality. Every detail was perfect.',
-      avatar: '👩‍💼'
-    },
-    {
-      name: 'Michael Chen',
-      location: 'Toronto, Canada',
-      rating: 5,
-      text: 'Professional, reliable, and passionate about travel. They helped us discover hidden gems we never would have found on our own.',
-      avatar: '👨‍💻'
-    },
-    {
-      name: 'Emma Rodriguez',
-      location: 'Barcelona, Spain',
-      rating: 5,
-      text: 'Outstanding service from start to finish. The personalized itinerary exceeded all our expectations. Highly recommended!',
-      avatar: '👩‍🎨'
-    }
-  ];
-
-  const features = [
-    {
-      icon: Shield,
-      title: 'Travel Insurance',
-      description: 'Comprehensive coverage for peace of mind on every journey'
-    },
-    {
-      icon: Award,
-      title: 'Expert Guides',
-      description: 'Local professionals with deep knowledge and passion for their regions'
-    },
-    {
-      icon: Users,
-      title: '24/7 Support',
-      description: 'Round-the-clock assistance whenever and wherever you need it'
-    },
-    {
-      icon: Heart,
-      title: 'Personalized',
-      description: 'Tailored experiences crafted specifically for your interests and preferences'
-    }
-  ];
-
-  return (
-    <div className="min-h-screen">
+  const featuredDestinations = [{
+    id: '1',
+    name: 'Santorini',
+    country: 'Greece',
+    image: santoriniImage,
+    price: 1299,
+    rating: 4.9,
+    duration: '7 days',
+    groupSize: '2-8 people',
+    description: 'Experience the breathtaking sunsets and iconic blue-domed churches of this Greek island paradise.',
+    featured: true
+  }, {
+    id: '2',
+    name: 'Tokyo',
+    country: 'Japan',
+    image: tokyoImage,
+    price: 1899,
+    rating: 4.8,
+    duration: '10 days',
+    groupSize: '2-12 people',
+    description: 'Immerse yourself in the perfect blend of ancient traditions and cutting-edge modernity.',
+    featured: true
+  }, {
+    id: '3',
+    name: 'Swiss Alps',
+    country: 'Switzerland',
+    image: swissAlpsImage,
+    price: 2199,
+    rating: 4.9,
+    duration: '8 days',
+    groupSize: '2-6 people',
+    description: 'Adventure through pristine mountain landscapes and charming alpine villages.',
+    featured: true
+  }];
+  const testimonials = [{
+    name: 'Sarah Johnson',
+    location: 'New York, USA',
+    rating: 5,
+    text: 'Absolutely incredible experience! The team at Voyager Nexus made our dream vacation a reality. Every detail was perfect.',
+    avatar: '👩‍💼'
+  }, {
+    name: 'Michael Chen',
+    location: 'Toronto, Canada',
+    rating: 5,
+    text: 'Professional, reliable, and passionate about travel. They helped us discover hidden gems we never would have found on our own.',
+    avatar: '👨‍💻'
+  }, {
+    name: 'Emma Rodriguez',
+    location: 'Barcelona, Spain',
+    rating: 5,
+    text: 'Outstanding service from start to finish. The personalized itinerary exceeded all our expectations. Highly recommended!',
+    avatar: '👩‍🎨'
+  }];
+  const features = [{
+    icon: Shield,
+    title: 'Travel Insurance',
+    description: 'Comprehensive coverage for peace of mind on every journey'
+  }, {
+    icon: Award,
+    title: 'Expert Guides',
+    description: 'Local professionals with deep knowledge and passion for their regions'
+  }, {
+    icon: Users,
+    title: '24/7 Support',
+    description: 'Round-the-clock assistance whenever and wherever you need it'
+  }, {
+    icon: Heart,
+    title: 'Personalized',
+    description: 'Tailored experiences crafted specifically for your interests and preferences'
+  }];
+  return <div className="min-h-screen">
       <HeroSection />
 
       {/* Featured Destinations */}
@@ -114,11 +96,11 @@ const Home = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {featuredDestinations.map((destination, index) => (
-              <div key={destination.id} className="animate-fade-in" style={{ animationDelay: `${index * 0.2}s` }}>
+            {featuredDestinations.map((destination, index) => <div key={destination.id} className="animate-fade-in" style={{
+            animationDelay: `${index * 0.2}s`
+          }}>
                 <DestinationCard {...destination} />
-              </div>
-            ))}
+              </div>)}
           </div>
 
           <div className="text-center">
@@ -146,12 +128,9 @@ const Home = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {features.map((feature, index) => (
-              <div 
-                key={feature.title} 
-                className="text-center group animate-fade-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
+            {features.map((feature, index) => <div key={feature.title} className="text-center group animate-fade-in" style={{
+            animationDelay: `${index * 0.1}s`
+          }}>
                 <div className="mx-auto w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center mb-6 group-hover:shadow-glow transition-all duration-300 group-hover:scale-110">
                   <feature.icon className="h-8 w-8 text-white" />
                 </div>
@@ -161,8 +140,7 @@ const Home = () => {
                 <p className="text-muted-foreground leading-relaxed">
                   {feature.description}
                 </p>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -183,16 +161,11 @@ const Home = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div 
-                key={testimonial.name} 
-                className="bg-card rounded-2xl p-8 shadow-card hover:shadow-elegant transition-all duration-300 group animate-fade-in"
-                style={{ animationDelay: `${index * 0.2}s` }}
-              >
+            {testimonials.map((testimonial, index) => <div key={testimonial.name} className="bg-card rounded-2xl p-8 shadow-card hover:shadow-elegant transition-all duration-300 group animate-fade-in" style={{
+            animationDelay: `${index * 0.2}s`
+          }}>
                 <div className="flex items-center mb-6">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 text-yellow-500 fill-current" />
-                  ))}
+                  {[...Array(testimonial.rating)].map((_, i) => <Star key={i} className="h-5 w-5 text-yellow-500 fill-current" />)}
                 </div>
                 
                 <p className="text-muted-foreground mb-6 leading-relaxed italic">
@@ -211,8 +184,7 @@ const Home = () => {
                     </p>
                   </div>
                 </div>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -235,14 +207,12 @@ const Home = () => {
               Start Planning
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
-              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary">
+              <Button variant="outline" size="lg" className="border-white hover:bg-white text-red-600">
                 Get Free Quote
               </Button>
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default Home;
