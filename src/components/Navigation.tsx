@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Plane, Phone, Mail } from 'lucide-react';
+import { Menu, X, Plane, Home, MapPin, Users, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
@@ -9,10 +9,10 @@ const Navigation = () => {
   const location = useLocation();
 
   const navItems = [
-    { name: 'Home', href: '/' },
-    { name: 'Destinations', href: '/destinations' },
-    { name: 'About', href: '/about' },
-    { name: 'Reviews', href: '/reviews' },
+    { name: 'Home', href: '/', icon: Home },
+    { name: 'Destinations', href: '/destinations', icon: MapPin },
+    { name: 'About', href: '/about', icon: Users },
+    { name: 'Reviews', href: '/reviews', icon: Star },
   ];
 
   const isActive = (href: string) => location.pathname === href;
@@ -33,21 +33,25 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                to={item.href}
-                className={cn(
-                  "relative px-3 py-2 text-sm font-medium transition-all duration-300",
-                  "hover:text-primary",
-                  "before:absolute before:bottom-0 before:left-0 before:w-full before:h-0.5 before:bg-gradient-primary before:scale-x-0 before:origin-left before:transition-transform before:duration-300",
-                  "hover:before:scale-x-100",
-                  isActive(item.href) ? "text-primary before:scale-x-100" : "text-foreground"
-                )}
-              >
-                {item.name}
-              </Link>
-            ))}
+            {navItems.map((item) => {
+              const IconComponent = item.icon;
+              return (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className={cn(
+                    "relative flex items-center gap-2 px-3 py-2 text-sm font-medium transition-all duration-300",
+                    "hover:text-primary",
+                    "before:absolute before:bottom-0 before:left-0 before:w-full before:h-0.5 before:bg-gradient-primary before:scale-x-0 before:origin-left before:transition-transform before:duration-300",
+                    "hover:before:scale-x-100",
+                    isActive(item.href) ? "text-primary before:scale-x-100" : "text-foreground"
+                  )}
+                >
+                  <IconComponent className="h-4 w-4" />
+                  {item.name}
+                </Link>
+              );
+            })}
             <Button variant="hero" size="sm" className="ml-4">
               Book Now
             </Button>
@@ -68,21 +72,25 @@ const Navigation = () => {
         {isOpen && (
           <div className="md:hidden border-t border-border/40 bg-white/95 backdrop-blur-lg">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  className={cn(
-                    "block px-3 py-2 text-base font-medium rounded-md transition-colors duration-300",
-                    isActive(item.href) 
-                      ? "bg-accent text-primary" 
-                      : "text-foreground hover:bg-accent/50 hover:text-primary"
-                  )}
-                  onClick={() => setIsOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ))}
+              {navItems.map((item) => {
+                const IconComponent = item.icon;
+                return (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className={cn(
+                      "flex items-center gap-3 px-3 py-2 text-base font-medium rounded-md transition-colors duration-300",
+                      isActive(item.href) 
+                        ? "bg-accent text-primary" 
+                        : "text-foreground hover:bg-accent/50 hover:text-primary"
+                    )}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    <IconComponent className="h-5 w-5" />
+                    {item.name}
+                  </Link>
+                );
+              })}
               <div className="pt-4 pb-2">
                 <Button variant="hero" className="w-full">
                   Book Now
