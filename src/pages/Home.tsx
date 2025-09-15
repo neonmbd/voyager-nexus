@@ -77,139 +77,153 @@ const Home = () => {
     title: 'Personalized',
     description: 'Tailored experiences crafted specifically for your interests and preferences'
   }];
-  return <div className="min-h-screen">
+  return <div className="min-h-screen pt-20">
       <HeroSection />
 
       {/* Featured Destinations */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-20">
+            <h2 className="text-5xl md:text-6xl font-bold mb-8 leading-tight">
               Featured 
-              <span className="bg-gradient-primary bg-clip-text text-transparent ml-3">
+              <span className="bg-gradient-hero bg-clip-text text-transparent">
                 Destinations
               </span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Discover our most popular travel experiences, carefully curated for unforgettable adventures.
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Discover our most popular travel experiences, carefully curated for unforgettable adventures that will transform your perspective on the world.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {featuredDestinations.map((destination, index) => <div key={destination.id} className="animate-fade-in" style={{
-            animationDelay: `${index * 0.2}s`
-          }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-16">
+            {featuredDestinations.map((destination, index) => (
+              <div key={destination.id} className="animate-fade-in" style={{
+                animationDelay: `${index * 0.2}s`
+              }}>
                 <DestinationCard {...destination} />
-              </div>)}
+              </div>
+            ))}
           </div>
 
           <div className="text-center">
-            <Button variant="premium" size="lg" className="group">
+            <Button variant="hero" size="xl" className="group">
               View All Destinations
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
             </Button>
           </div>
         </div>
       </section>
 
       {/* Features */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+      <section className="py-24 bg-muted/20">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-20">
+            <h2 className="text-5xl md:text-6xl font-bold mb-8 leading-tight">
               Why Choose 
-              <span className="bg-gradient-primary bg-clip-text text-transparent ml-3">
-                Voyager Nexus
+              <span className="bg-gradient-hero bg-clip-text text-transparent">
+                Magic World
               </span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              We're committed to providing exceptional travel experiences with unmatched service and attention to detail.
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              We're committed to providing exceptional travel experiences with unmatched service and attention to detail that exceeds your expectations.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {features.map((feature, index) => <div key={feature.title} className="text-center group animate-fade-in" style={{
-            animationDelay: `${index * 0.1}s`
-          }}>
-                <div className="mx-auto w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center mb-6 group-hover:shadow-glow transition-all duration-300 group-hover:scale-110">
-                  <feature.icon className="h-8 w-8 text-white" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+            {features.map((feature, index) => (
+              <div key={feature.title} className="text-center group animate-fade-in" style={{
+                animationDelay: `${index * 0.1}s`
+              }}>
+                <div className="mx-auto w-20 h-20 bg-gradient-accent rounded-3xl flex items-center justify-center mb-8 group-hover:shadow-glow transition-all duration-500 group-hover:scale-105 group-hover:-translate-y-2">
+                  <feature.icon className="h-10 w-10 text-white" />
                 </div>
-                <h3 className="text-xl font-bold mb-4 group-hover:text-primary transition-colors">
+                <h3 className="text-2xl font-bold mb-6 group-hover:text-primary transition-colors duration-300">
                   {feature.title}
                 </h3>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed text-lg">
                   {feature.description}
                 </p>
-              </div>)}
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-20">
+            <h2 className="text-5xl md:text-6xl font-bold mb-8 leading-tight">
               What Our 
-              <span className="bg-gradient-primary bg-clip-text text-transparent ml-3">
+              <span className="bg-gradient-highlight bg-clip-text text-transparent">
                 Travelers Say
               </span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Real stories from real adventurers who have experienced the magic of travel with us.
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Real stories from real adventurers who have experienced the magic of travel with us and discovered the world in a whole new way.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => <div key={testimonial.name} className="bg-card rounded-2xl p-8 shadow-card hover:shadow-elegant transition-all duration-300 group animate-fade-in" style={{
-            animationDelay: `${index * 0.2}s`
-          }}>
-                <div className="flex items-center mb-6">
-                  {[...Array(testimonial.rating)].map((_, i) => <Star key={i} className="h-5 w-5 text-yellow-500 fill-current" />)}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {testimonials.map((testimonial, index) => (
+              <div key={testimonial.name} className="bg-card rounded-3xl p-10 shadow-card hover:shadow-float transition-all duration-500 group animate-fade-in hover:-translate-y-2" style={{
+                animationDelay: `${index * 0.2}s`
+              }}>
+                <div className="flex items-center mb-8">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} className="h-6 w-6 text-gradient-highlight fill-current" />
+                  ))}
                 </div>
                 
-                <p className="text-muted-foreground mb-6 leading-relaxed italic">
+                <p className="text-muted-foreground mb-8 leading-relaxed text-lg italic">
                   "{testimonial.text}"
                 </p>
                 
                 <div className="flex items-center">
-                  <div className="w-12 h-12 rounded-full bg-gradient-primary flex items-center justify-center text-white text-xl mr-4">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-fresh flex items-center justify-center text-white text-2xl mr-6">
                     {testimonial.avatar}
                   </div>
                   <div>
-                    <h4 className="font-semibold text-foreground">{testimonial.name}</h4>
-                    <p className="text-sm text-muted-foreground flex items-center">
-                      <MapPin className="h-3 w-3 mr-1" />
+                    <h4 className="font-semibold text-foreground text-lg">{testimonial.name}</h4>
+                    <p className="text-muted-foreground flex items-center mt-1">
+                      <MapPin className="h-4 w-4 mr-2" />
                       {testimonial.location}
                     </p>
                   </div>
                 </div>
-              </div>)}
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-hero text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid-white/10 opacity-20" />
+      <section className="py-32 bg-gradient-hero text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-highlight rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-fresh rounded-full blur-3xl" />
+        </div>
         
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <h2 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
-            Ready for Your Next Adventure?
+        <div className="container mx-auto px-6 text-center relative z-10">
+          <h2 className="text-6xl md:text-7xl font-bold mb-10 animate-fade-in leading-tight">
+            Ready for Your Next
+            <span className="block bg-gradient-to-r from-white to-primary-glow bg-clip-text text-transparent">
+              Adventure?
+            </span>
           </h2>
-          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed animate-fade-in">
-            Join thousands of satisfied travelers who have discovered the world with Voyager Nexus. 
+          <p className="text-2xl mb-12 max-w-4xl mx-auto leading-relaxed animate-fade-in opacity-90">
+            Join thousands of satisfied travelers who have discovered the world with Magic World. 
             Your dream destination is just a click away.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in">
-            <Button variant="glass" size="lg" className="group">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in">
+            <Button variant="glass" size="xl" className="group">
               Start Planning
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform duration-300" />
             </Button>
-              <Button variant="outline" size="lg" className="border-white hover:bg-white text-red-600">
-                Get Free Quote
-              </Button>
+            <Button variant="outline" size="xl" className="border-white/30 hover:bg-white/10 text-white hover:text-white backdrop-blur-glass">
+              Get Free Quote
+            </Button>
           </div>
         </div>
       </section>

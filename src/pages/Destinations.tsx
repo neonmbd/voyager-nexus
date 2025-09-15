@@ -8,7 +8,6 @@ import santoriniImage from '@/assets/santorini.jpg';
 import tokyoImage from '@/assets/tokyo.jpg';
 import swissAlpsImage from '@/assets/swiss-alps.jpg';
 import dubaiImage from '@/assets/dubai.jpg';
-import destinationsCollage from '@/assets/destinations-collage.jpg';
 
 const Destinations = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -73,7 +72,7 @@ const Destinations = () => {
       name: 'Bali',
       country: 'Indonesia',
       region: 'Asia',
-      image: santoriniImage, // Placeholder - you can generate a Bali image
+      image: santoriniImage, // Placeholder
       price: 999,
       rating: 4.6,
       duration: '9 days',
@@ -126,60 +125,55 @@ const Destinations = () => {
   });
 
   return (
-    <div className="min-h-screen pt-16">
+    <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="relative h-96 flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img 
-            src={destinationsCollage}
-            alt="Travel destinations collage"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70" />
-        </div>
+      <section className="relative py-32 flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-hero opacity-10" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-accent opacity-20 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-fresh opacity-20 rounded-full blur-3xl" />
 
-        <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
+        <div className="relative z-10 text-center max-w-5xl mx-auto px-6">
+          <h1 className="text-6xl md:text-7xl font-bold mb-8 animate-fade-in leading-tight">
             Explore 
-            <span className="bg-gradient-to-r from-primary-glow to-white bg-clip-text text-transparent ml-3">
+            <span className="bg-gradient-hero bg-clip-text text-transparent">
               Destinations
             </span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-200 animate-fade-in">
-            Discover breathtaking places around the world, each offering unique experiences and unforgettable memories.
+          <p className="text-2xl text-muted-foreground animate-fade-in max-w-3xl mx-auto leading-relaxed">
+            Discover breathtaking places around the world, each offering unique experiences and unforgettable memories that will transform your perspective.
           </p>
         </div>
       </section>
 
       {/* Filters */}
-      <section className="py-8 bg-background border-b border-border">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col lg:flex-row gap-4 items-center justify-between">
+      <section className="py-12 bg-muted/10 border-b border-border">
+        <div className="container mx-auto px-6">
+          <div className="flex flex-col lg:flex-row gap-8 items-center justify-between">
             {/* Search */}
-            <div className="relative flex-1 max-w-md">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <div className="relative flex-1 max-w-lg">
+              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground" />
               <Input
                 placeholder="Search destinations..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10"
+                className="pl-12 h-14 rounded-2xl border-0 bg-card shadow-card text-lg"
               />
             </div>
 
             {/* Filters */}
-            <div className="flex flex-wrap gap-4 items-center">
-              <div className="flex items-center space-x-2">
-                <Filter className="h-4 w-4 text-muted-foreground" />
-                <span className="text-sm font-medium text-muted-foreground">Region:</span>
+            <div className="flex flex-wrap gap-6 items-center">
+              <div className="flex items-center space-x-3">
+                <Filter className="h-5 w-5 text-muted-foreground" />
+                <span className="font-medium text-muted-foreground">Region:</span>
                 <div className="flex flex-wrap gap-2">
                   {regions.map((region) => (
                     <Badge
                       key={region}
                       variant={selectedRegion === region ? "default" : "outline"}
-                      className={`cursor-pointer transition-all duration-200 ${
+                      className={`cursor-pointer transition-all duration-300 px-4 py-2 rounded-xl ${
                         selectedRegion === region 
-                          ? 'bg-gradient-primary text-white hover:shadow-glow' 
-                          : 'hover:bg-accent'
+                          ? 'bg-gradient-hero text-white hover:shadow-glow' 
+                          : 'hover:bg-muted/50'
                       }`}
                       onClick={() => setSelectedRegion(region)}
                     >
@@ -189,18 +183,18 @@ const Destinations = () => {
                 </div>
               </div>
 
-              <div className="flex items-center space-x-2">
-                <SlidersHorizontal className="h-4 w-4 text-muted-foreground" />
-                <span className="text-sm font-medium text-muted-foreground">Price:</span>
+              <div className="flex items-center space-x-3">
+                <SlidersHorizontal className="h-5 w-5 text-muted-foreground" />
+                <span className="font-medium text-muted-foreground">Price:</span>
                 <div className="flex flex-wrap gap-2">
                   {priceRanges.map((range) => (
                     <Badge
                       key={range}
                       variant={priceRange === range ? "default" : "outline"}
-                      className={`cursor-pointer transition-all duration-200 ${
+                      className={`cursor-pointer transition-all duration-300 px-4 py-2 rounded-xl ${
                         priceRange === range 
-                          ? 'bg-gradient-primary text-white hover:shadow-glow' 
-                          : 'hover:bg-accent'
+                          ? 'bg-gradient-accent text-white hover:shadow-glow' 
+                          : 'hover:bg-muted/50'
                       }`}
                       onClick={() => setPriceRange(range)}
                     >
@@ -215,20 +209,20 @@ const Destinations = () => {
       </section>
 
       {/* Results */}
-      <section className="py-12 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="text-2xl font-bold text-foreground">
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-6">
+          <div className="flex items-center justify-between mb-12">
+            <h2 className="text-3xl font-bold text-foreground">
               {filteredDestinations.length} Destinations Found
             </h2>
-            <div className="flex items-center space-x-2 text-muted-foreground">
-              <MapPin className="h-4 w-4" />
-              <span className="text-sm">Showing results for your search</span>
+            <div className="flex items-center space-x-3 text-muted-foreground">
+              <MapPin className="h-5 w-5" />
+              <span>Showing results for your search</span>
             </div>
           </div>
 
           {filteredDestinations.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
               {filteredDestinations.map((destination, index) => (
                 <div key={destination.id} className="animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
                   <DestinationCard {...destination} />
@@ -236,13 +230,13 @@ const Destinations = () => {
               ))}
             </div>
           ) : (
-            <div className="text-center py-16">
-              <div className="max-w-md mx-auto">
-                <div className="w-24 h-24 bg-muted rounded-full flex items-center justify-center mx-auto mb-6">
-                  <MapPin className="h-12 w-12 text-muted-foreground" />
+            <div className="text-center py-20">
+              <div className="max-w-lg mx-auto">
+                <div className="w-32 h-32 bg-muted/50 rounded-full flex items-center justify-center mx-auto mb-8">
+                  <MapPin className="h-16 w-16 text-muted-foreground" />
                 </div>
-                <h3 className="text-xl font-semibold mb-4">No destinations found</h3>
-                <p className="text-muted-foreground mb-6">
+                <h3 className="text-2xl font-semibold mb-6">No destinations found</h3>
+                <p className="text-muted-foreground mb-8 text-lg leading-relaxed">
                   Try adjusting your search criteria or browse all our amazing destinations.
                 </p>
                 <Button 
@@ -251,7 +245,8 @@ const Destinations = () => {
                     setSelectedRegion('All');
                     setPriceRange('All');
                   }}
-                  variant="premium"
+                  variant="hero"
+                  size="lg"
                 >
                   Clear Filters
                 </Button>
@@ -262,15 +257,23 @@ const Destinations = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-muted/30">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Can't Find What You're Looking For?
+      <section className="py-24 bg-gradient-hero text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-highlight rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-fresh rounded-full blur-3xl" />
+        </div>
+        
+        <div className="container mx-auto px-6 text-center relative z-10">
+          <h2 className="text-5xl md:text-6xl font-bold mb-8 leading-tight">
+            Can't Find What You're 
+            <span className="block bg-gradient-to-r from-white to-primary-glow bg-clip-text text-transparent">
+              Looking For?
+            </span>
           </h2>
-          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Our travel experts can create a custom itinerary tailored to your dreams and preferences.
+          <p className="text-2xl mb-12 max-w-4xl mx-auto leading-relaxed opacity-90">
+            Our travel experts can create a custom itinerary tailored to your dreams and preferences, crafting the perfect journey just for you.
           </p>
-          <Button variant="hero" size="lg">
+          <Button variant="glass" size="xl">
             Plan My Custom Trip
           </Button>
         </div>
